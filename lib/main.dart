@@ -22,12 +22,12 @@ class myApp extends StatelessWidget {
         primarySwatch: Colors.red,
         fontFamily: GoogleFonts.lato().fontFamily,
       ),
-
+      debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(
         brightness: Brightness.light,
       ),
-      initialRoute:
-          "/Login", //initial route mein back slash/ replace hojata hai
+      initialRoute: MyRoutes
+          .HomeRoute, //initial route mein back slash/ replace hojata hai
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.HomeRoute: (context) => HomePage(),
