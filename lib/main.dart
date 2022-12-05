@@ -20,8 +20,12 @@ class myApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData(
         primarySwatch: Colors.red,
-        fontFamily: GoogleFonts.lato().fontFamily,
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        appBarTheme: AppBarTheme(
+          elevation: 0.0,
+        ),
       ),
+
       debugShowCheckedModeBanner: false,
       darkTheme: ThemeData(
         brightness: Brightness.light,
@@ -35,4 +39,7 @@ class myApp extends StatelessWidget {
       },
     );
   }
+
+  static Color creamColor = Color(0xfff5f5f5);
+  static Color darkBlue = Color.fromARGB(255, 230, 0, 0);
 }
