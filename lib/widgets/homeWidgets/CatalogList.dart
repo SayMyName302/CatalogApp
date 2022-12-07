@@ -1,9 +1,12 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_application_1/Pages/homedetail.dart';
-import 'package:flutter_application_1/models/catalogs.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/homeWidgets/addtocart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Pages/homedetail.dart';
+import 'package:flutter_application_1/models/cart.dart';
+import 'package:flutter_application_1/models/catalogs.dart';
 
 import 'CatalogImage.dart';
 
@@ -14,7 +17,7 @@ class CatalogList extends StatelessWidget {
       shrinkWrap: true,
       itemCount: CatalogModel.items.length,
       itemBuilder: (context, index) {
-        final catalog = CatalogModel.items[index];
+        final catalog = CatalogModel.getByPosition(index);
         return InkWell(
           child: CatalogItem(catalog: catalog),
           onTap: () => Navigator.push(
@@ -39,8 +42,8 @@ class CatalogItem extends StatelessWidget {
         child: Row(
       children: [
         Hero(
-          tag:Key(catalog.id.toString()),
-          child: CatalogImage(image: catalog.image)),
+            tag: Key(catalog.id.toString()),
+            child: CatalogImage(image: catalog.image)),
         Expanded(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,11 +60,7 @@ class CatalogItem extends StatelessWidget {
               buttonPadding: EdgeInsets.zero,
               children: [
                 "\$${catalog.price}".text.bold.xl.make(),
-                ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        shape: MaterialStateProperty.all(StadiumBorder())),
-                    child: "Buy".text.make())
+                AddtoCart(catalog: catalog)
               ],
             ).pOnly(right: 8.0)
           ],

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Pages/LoginPage.dart';
 import 'package:flutter_application_1/Pages/home_page.dart';
+import 'package:flutter_application_1/core/store.dart';
 import 'package:flutter_application_1/utils/routes.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_application_1/Pages/cartpage.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 void main() {
-  runApp(myApp());
+  runApp(VxState(store: MyStore(), child: myApp()));
 }
 
 class myApp extends StatelessWidget {
@@ -36,6 +39,7 @@ class myApp extends StatelessWidget {
         "/": (context) => LoginPage(),
         MyRoutes.HomeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
+        MyRoutes.cartRoute: (context) => CartPage(),
       },
     );
   }
