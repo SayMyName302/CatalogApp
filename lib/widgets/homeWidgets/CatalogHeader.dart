@@ -8,7 +8,7 @@ class CatalogHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        "Catalog App"
+        "Noor's Wishlist"
             .text
             .xl5
             .bold

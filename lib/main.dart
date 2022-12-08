@@ -34,7 +34,7 @@ class myApp extends StatelessWidget {
         brightness: Brightness.light,
       ),
       initialRoute: MyRoutes
-          .HomeRoute, //initial route mein back slash/ replace hojata hai
+          .loginRoute, //initial route mein back slash/ replace hojata hai
       routes: {
         "/": (context) => LoginPage(),
         MyRoutes.HomeRoute: (context) => HomePage(),
